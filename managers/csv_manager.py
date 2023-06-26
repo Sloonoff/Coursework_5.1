@@ -6,7 +6,7 @@ from work_sercher.parcers.vacancy_parser import VacancyParser
 
 class CSVFileManager:
 	"""
-	doc
+	Данные функции работают с файлами CSV.
 	"""
 
 	path = './result.csv'
@@ -14,7 +14,7 @@ class CSVFileManager:
 
 	def __init__(self, path: str = None):
 		"""
-		doc
+		Инициализации объекта и определения пути к файлу CSV.
 
 		:param path:
 		"""
@@ -24,7 +24,7 @@ class CSVFileManager:
 
 	def load_to(self, vacancies: list[VacancyParser]) -> None:
 		"""
-		doc
+		Запись данных в файл CSV. Получает список вакансий и записывает их в CSV-файл.
 
 		:param vacancies:
 		:return:
@@ -40,8 +40,7 @@ class CSVFileManager:
 
 	def load_from(self, *args) -> None:
 		"""
-		doc
-
+		Загрузка данных из файла CSV. Читает CSV-файл и извлекает значения.
 		:param args:
 		:return:
 		"""
@@ -73,7 +72,7 @@ class CSVFileManager:
 
 	def delete(self) -> None:
 		"""
-		doc
+		Удаление файла
 
 		:return:
 		"""
