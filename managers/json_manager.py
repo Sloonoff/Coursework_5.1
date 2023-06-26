@@ -7,14 +7,14 @@ from work_sercher.parcers.vacancy_parser import VacancyParser
 
 class JSONFileManager:
 	"""
-	doc
+	Работа в формате JSON
 	"""
 
 	path = './result.json'
 
 	def __init__(self, path: str = None):
 		"""
-		doc
+		Инициализации объекта класса.
 
 		:param path:
 		"""
@@ -24,7 +24,7 @@ class JSONFileManager:
 
 	def load_to(self, vacancies: list[VacancyParser], fp: str = None) -> None:
 		"""
-		doc
+		Сохранение данных в файл JSON
 
 		:param vacancies:
 		:param fp:
@@ -46,7 +46,7 @@ class JSONFileManager:
 
 	def delete(self) -> None:
 		"""
-		doc
+		Удаление файла
 
 		:return:
 		"""
