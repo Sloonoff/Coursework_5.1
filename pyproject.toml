@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "курсовая-5-1"
+version = "0.1.0"
+description = ""
+authors = ["Sloonoff <Enclaf@mail.ru>"]
+readme = "README.md"
+packages = [{include = "курсовая_5"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
