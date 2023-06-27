@@ -7,9 +7,8 @@ from managers.json_manager import JSONFileManager
 
 def console_manager() -> None:
 	"""
-	doc
-
-	:return:
+	Вызвать консоль
+	
 	"""
 	menu = 'Меню:' \
 		   '\n 1 - Вакансий из HH' \
