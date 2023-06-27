@@ -16,7 +16,6 @@ class CSVFileManager:
 		"""
 		Инициализации объекта и определения пути к файлу CSV.
 
-		:param path:
 		"""
 
 		if path:
@@ -26,8 +25,6 @@ class CSVFileManager:
 		"""
 		Запись данных в файл CSV. Получает список вакансий и записывает их в CSV-файл.
 
-		:param vacancies:
-		:return:
 		"""
 
 		with open(self.path, 'w', encoding='utf-8') as fp:
@@ -38,24 +35,20 @@ class CSVFileManager:
 				row = [vac.name, vac.url, vac.salary_from, vac.salary_to, vac.requirement]
 				writer.writerow(row)
 
-	def load_from(self, *args) -> None:
+	def load_from(self, user_headers: list = None) -> None:
 		"""
-		Загрузка данных из файла CSV. Читает CSV-файл и извлекает значения.
-		:param args:
-		:return:
+		Запись данных в файл CSV. Получает список вакансий и записывает их в CSV-файл.
+
 		"""
 
 		with open(self.path, 'r', encoding='utf-8') as fp:
 			reader = csv.reader(fp, dialect='excel', delimiter=';')
 
 			headers = []
-			for els in args:
-				for el in els:
-					headers.append(el)
-
-			for header in headers:
+			for header in user_headers:
 				if header not in self.headers:
 					raise ValueError(f'Недопустимый параметр: {header}\nДопустимые: {self.headers}')
+				headers.append(header)
 
 			headers_index = [self.headers.index(header) for header in headers]
 
@@ -73,8 +66,6 @@ class CSVFileManager:
 	def delete(self) -> None:
 		"""
 		Удаление файла
-
-		:return:
 		"""
 
 		os.remove(self.path)
