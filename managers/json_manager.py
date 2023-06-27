@@ -11,6 +11,7 @@ class JSONFileManager:
 	"""
 
 	path = './result.json'
+	headers = ['name', 'url', 'salary_from', 'salary_to', 'requirements']
 
 	def __init__(self, path: str = None):
 		"""
@@ -43,6 +44,29 @@ class JSONFileManager:
 
 		with open(path, 'w', encoding=locale.getpreferredencoding()) as fp:
 			json.dump(data, fp, indent=4)
+
+	def load_from(self, user_headers: list = None) -> None:
+		
+
+		headers = []
+		result = []
+		for header in user_headers:
+			if header not in self.headers:
+				raise ValueError(f'Недопустимый параметр: {header}\nДопустимые: {self.headers}')
+			headers.append(header)
+
+		headers_index = [self.headers.index(header) for header in headers]
+
+		with open(self.path, 'r', encoding='utf-8') as fp:
+			data = json.load(fp)
+			for value in data.values():
+				row = []
+				for idx in headers_index:
+					row.append(value[idx])
+				result.append(row)
+
+		for row in result:
+			print(row)
 
 	def delete(self) -> None:
 		"""
