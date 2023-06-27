@@ -5,7 +5,6 @@ from parcers.superjob_parser import SuperJobAPI
 from managers.csv_manager import CSVFileManager
 from managers.json_manager import JSONFileManager
 
-
 def console_manager() -> None:
 	"""
 	doc
@@ -27,9 +26,9 @@ def console_manager() -> None:
 	else:
 		raise ValueError('Недопустимый ввод')
 
-	user_enter = input('Введите ключевое слово для вакансии\n\t>> ')
+	key_word = input('Введите ключевое слово для вакансии\n\t>> ')
 
-	items = api.get_vacancies(user_enter)
+	items = api.get_vacancies(key_word)
 	if len(items) < 1:
 		print('Не найдено ни одной подходящей вакансии. Повторите попытку')
 		return
@@ -61,6 +60,7 @@ def console_manager() -> None:
 			rows.append([vac.name, vac.url, vac.salary_from, vac.salary_to, vac.requirement])
 		table = tabulate(rows, headers)
 		print(table)
+		exit(0)
 	elif user_enter == 2:
 		fm = CSVFileManager()
 		fm.load_to(vacs)
@@ -71,6 +71,14 @@ def console_manager() -> None:
 		print(f'Сохранено по пути {fm.path}')
 	else:
 		raise ValueError('Недопустимый ввод')
+
+	headers = ["name", "url", "salary_from", "salary_to", "requirements"]
+	menu = f'Напишите столбцы из предложенных, которые хотели бы вывести:' \
+		   f'\n {headers}'
+	print(menu)
+	user_enter = input('\t>> ')
+	user_headers = user_enter.split(', ')
+	fm.load_from(user_headers)
 
 
 if __name__ == '__main__':
