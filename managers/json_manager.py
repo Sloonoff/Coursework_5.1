@@ -2,7 +2,7 @@ import os
 import json
 import locale
 
-from work_sercher.parcers.vacancy_parser import VacancyParser
+from vacancy_parser import VacancyParser
 
 
 class JSONFileManager:
