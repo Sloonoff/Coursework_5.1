@@ -17,7 +17,6 @@ class JSONFileManager:
 		"""
 		Инициализации объекта класса.
 
-		:param path:
 		"""
 
 		if path:
@@ -27,9 +26,6 @@ class JSONFileManager:
 		"""
 		Сохранение данных в файл JSON
 
-		:param vacancies:
-		:param fp:
-		:return:
 		"""
 
 		if fp:

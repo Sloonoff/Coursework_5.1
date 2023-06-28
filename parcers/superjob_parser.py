@@ -13,9 +13,7 @@ class SuperJobAPI(BaseParser):
 
 	def __init__(self, api_key: str):
 		"""
-		doc
-
-		:param api_key:
+		Инициализирует объект класса
 		"""
 
 		super().__init__()
@@ -26,11 +24,7 @@ class SuperJobAPI(BaseParser):
 
 	def get_vacancies(self, vacancy: str, page_count: int = 10) -> list:
 		"""
-		doc
-
-		:param vacancy:
-		:param page_count:
-		:return:
+		Возвращает список вакансий с сайта по заданному запросу.
 		"""
 
 		result = []
@@ -51,10 +45,7 @@ class SuperJobAPI(BaseParser):
 
 	def convert_vacancies(self, items: list[dict]) -> list[VacancyParser]:
 		"""
-		doc
-
-		:param items:
-		:return:
+		Преобразует список словарей с информацией о вакансиях в список объектов класса VacancyParser.
 		"""
 
 		result = []

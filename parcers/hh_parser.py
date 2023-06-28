@@ -5,26 +5,21 @@ from .vacancy_parser import VacancyParser
 
 
 class HeadHunterAPI(BaseParser):
-	"""
-	doc
-	"""
+
 
 	vac_url = 'https://api.hh.ru/vacancies'
 
 	def __init__(self):
 		"""
-		doc
+		Инициализирует объект класса
 		"""
 
 		super().__init__()
 
 	def get_vacancies(self, vacancy: str, page_count: int = 10) -> list[dict]:
 		"""
-		doc
+		Возвращает список вакансий с сайта HeadHunter по заданному запросу.
 
-		:param vacancy:
-		:param page_count:
-		:return:
 		"""
 
 		result = []
@@ -44,10 +39,8 @@ class HeadHunterAPI(BaseParser):
 
 	def convert_vacancies(self, items: list[dict]) -> list[VacancyParser]:
 		"""
-		doc
+		Преобразует список словарей с информацией о вакансиях в список объектов класса VacancyParser.
 
-		:param items:
-		:return:
 		"""
 
 		result = []
